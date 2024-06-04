@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Palestine Map</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <style>
+       html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+    }
+
+        #map {
+            margin: 0px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+    }
+
+
+
+
+    </style>
+</head>
+
+<body onload="initMap()" bgcolor="black">
+    <div id="map">
+        </div>
+        
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDru4JrckBTnb2_0t8kqTyj6qqGA8ALiuc&libraries=&v=weekly&callback=initMap"></script>
+
+      <script src="src/maplabel-compiled.js"></script>
+	  
+	<script>
+
+
+        /*-----Polygons coordinates variables start here-----*/
+        let Safad_polygonData = null;
+        let Akka_polygonData = null;
+        let Alnasra_polygonData = null;
+        let Haifa_polygonData = null;
+        let Bahriatabria_polygonData = null;
+        let Tiberias_polygonData = null;
+        let Bisan_polygonData = null;
+        let Tubas_polygonData = null;
+        let Jenin_polygonData = null;
+        let Nablus_polygonData = null;
+        let Tulkarm_polygonData = null;
+        let Qalqilya_polygonData = null;
+        let Yaffa_polygonData = null;
+        let Ramla_polygonData = null;
+        let Lod_polygonData = null;
+        let Salfit_polygonData = null;
+        let Ramallah_polygonData = null;
+        let Jericho_polygonData = null;
+        let Jerusalem_polygonData = null;
+        let Deadsea_polygonData = null;
+        let Bethlehem_polygonData = null;
+        let Hebron_polygonData = null;
+        let Gaza_polygonData = null;
+        let Beersheba_polygonData = null;
+
+
+
+
+        /*-----Fencing variables start here-----*/
+		let Safad_fence = null;
+        let Akka_fence = null;
+        let Alnasra_fence = null;
+        let Haifa_fence = null;
+        let Bahriatabria_fence = null;
+        let Tiberias_fence = null;
+        let Bisan_fence = null;
+        let Tubas_fence = null;
+        let Jenin_fence = null;
+        let Nablus_fence = null;
+        let Tulkarm_fence = null;
+        let Qalqilya_fence = null;
+        let Yaffa_fence = null;
+        let Ramla_fence = null;
+        let Lod_fence = null;
+        let Salfit_fence = null;
+        let Ramallah_fence = null;
+        let Jericho_fence = null;
+        let Jerusalem_fence = null;
+        let Deadsea_fence = null;
+        let Bethlehem_fence = null;
+        let Hebron_fence = null;
+        let Gaza_fence = null;
+        let Beersheba_fence = null;
+
+
+
+
+
+        /*-----Markers on the regions start here-----*/
+        let Safad_markerData = null;
+
+
+		
+		let Safad_markers_Cont = [];
+	</script>
+	  
+    <script>
+
+
+    			//Labelling on each regions	
+				let Safad_Region_Title = {lat: 33.027573778657775, lng: 35.49585830251208};
+				let Akka_Region_Title = {lat: 32.956341416513524, lng: 35.207324868964385};
+				let Tiberias_Region_Title = {lat: 32.77915112742251, lng: 35.471213518753686};
+				let Bahriatabria_Region_Title = {lat: 32.82301562793822, lng: 35.58451002829995};
+				let Alnasra_Region_Title = {lat: 32.676138734700295, lng: 35.279198345185776};
+				let Haifa_Region_Title = {lat: 32.676601211505584, lng: 35.01845594534423};
+				let Jenin_Region_Title = {lat: 32.43584209425675, lng: 35.26290174612548};
+				let Tulkarm_Region_Title = {lat: 32.304697311445054, lng: 34.96370753312256};
+				let Bisan_Region_Title = {lat: 32.53592817352923, lng: 35.49691062110249};
+				let Tubas_Region_Title = {lat: 32.338120198564795, lng: 35.49105125169042};
+				let Nablus_Region_Title = {lat: 32.18204132174587, lng: 35.324059097718035};
+				let Qalqilya_Region_Title = {lat: 32.16592271859762, lng: 35.041343957807456};
+				let Salfit_Region_Title = {lat: 32.081563398645315, lng: 35.05892214986268};
+				let Yaffa_Region_Title = {lat: 32.073805812388954, lng: 34.83498413154628};
+				let Jericho_Region_Title = {lat: 31.93141613712048, lng: 35.49910780081298};
+				let Ramallah_Region_Title = {lat: 31.944934729382016, lng: 35.244957600177784};
+				let Lod_Region_Title = {lat: 31.94540091849061, lng: 35.00746961721923};
+				let Ramla_Region_Title = {lat: 31.86146032672981, lng: 34.83168836721923};
+				let Jerusalem_Region_Title = {lat: 31.770438359960025, lng: 35.16402479300048};
+				let Bethlehem_Region_Title = {lat: 31.60372192598193, lng: 35.26839491018798};
+				let Hebron_Region_Title = {lat: 31.413894341498633, lng: 35.16585590356733};
+				let Deadsea_Region_Title = {lat: 31.473881348519413, lng: 35.47640273386385};
+				let Gaza_Region_Title = {lat: 31.581262315168615, lng: 34.59749648386385};
+				let Beersheba_Region_Title = {lat: 30.83707634345902, lng: 34.864098001660366};
+
+				let marker1 = null;
+				let marker2 = null;
+				let marker3 = null;
+				let marker4 = null;
+				let marker5 = null;
+				let marker6 = null;
+				let marker8 = null;
+				let marker9 = null;
+				let marker10 = null;
+				let marker11 = null;
+				let marker12 = null;
+				let marker13 = null;
+				let marker14 = null;
+				let marker15 = null;
+				let marker16 = null;
+				let marker17 = null;
+				let marker18 = null;
+				let marker19 = null;
+				let marker20 = null;
+				let marker21 = null;
+				let marker22 = null;
+				let marker23 = null;
+				let marker24 = null;
+
+
+
+			
+	</script>
+	
+
+
+    <script>
+
+            var map;
+			var mapCenter = {lat: 31.574882315062602, lng: 35.070829168592425};
+			
+
+            function initMap() {
+                map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 8,
+                    minZoom: 7,
+                    center: mapCenter,
+                    mapTypeId:  'satellite',
+				    // mapTypeControl: false,
+                });
+
+				
+
+			
+			let Safad_infoWindow = null;
+            let Safad_currentInfoWindow = null; // Putting the currentInfoWindow variable to null to track infowindow
+			let redCircleIcon = {
+				path: google.maps.SymbolPath.CIRCLE,
+				scale: 4.5,
+				fillColor: "#32CF32",
+				fillOpacity: 1,
+				strokeColor: "#000",
+				strokeWeight: 0.9,
+			}
+    	   
+ 			// Adding markers on the map
+  			Safad_markerData.forEach(Safad_markers => {
+    		let newMarker = new google.maps.Marker({	
+      		position: new google.maps.LatLng(Safad_markers.lat, Safad_markers.lng),
+			icon: redCircleIcon,
+      		map: null,
+    		});
+
+    
+
+    		// info window is here, adding a click listener to open the info window
+    		newMarker.addListener('click', () => {
+
+    		if (Safad_currentInfoWindow) {
+        	Safad_currentInfoWindow.close(); // Closing any existing info window
+      		}
+
+	      Safad_infoWindow = new google.maps.InfoWindow({
+    	  content: Safad_markers.title // Using the HTML-formatted title          
+      	}); //end of infoWindow here
+
+
+	      map.setZoom(16); //The zoom level is set to 16
+    	  map.setCenter(newMarker.getPosition()); //Set the marker to center
+      	  Safad_infoWindow.open(map, newMarker); //Show the information of the marker(s)
+      	  Safad_currentInfoWindow = Safad_infoWindow;
+
+    });
+	 Safad_markers_Cont.push(newMarker);
+  });
+
+
+
+
+
+  
+		//Labelling on regions  
+		marker1.setMap(map);
+		marker2.setMap(map);
+		marker3.setMap(map);
+		marker4.setMap(map);
+		marker5.setMap(map);
+		marker6.setMap(map);
+		marker7.setMap(map);
+		marker8.setMap(map);  
+		marker9.setMap(map);
+		marker10.setMap(map);
+		marker11.setMap(map);
+		marker12.setMap(map);
+		marker13.setMap(map);
+		marker14.setMap(map);
+		marker15.setMap(map);
+		marker16.setMap(map);
+		marker17.setMap(map);
+		marker18.setMap(map);
+		marker19.setMap(map);
+		marker20.setMap(map);
+		marker21.setMap(map);
+		marker22.setMap(map);
+		marker23.setMap(map);
+		marker24.setMap(map);
+
+
+
+		/*--- Fencing on the map ---*/
+        Safad_fence.setMap(map);
+        Akka_fence.setMap(map);
+        Alnasra_fence.setMap(map);
+        Haifa_fence.setMap(map);
+        Bahriatabria_fence.setMap(map);
+        Tiberias_fence.setMap(map);
+        Bisan_fence.setMap(map);
+        Tubas_fence.setMap(map);
+        Jenin_fence.setMap(map);
+        Nablus_fence.setMap(map);
+        Tulkarm_fence.setMap(map);
+        Qalqilya_fence.setMap(map);
+        Yaffa_fence.setMap(map);
+        Ramla_fence.setMap(map);
+        Lod_fence.setMap(map);
+        Salfit_fence.setMap(map);
+        Ramallah_fence.setMap(map);
+        Jericho_fence.setMap(map);
+        Jerusalem_fence.setMap(map);
+        Deadsea_fence.setMap(map);
+        Bethlehem_fence.setMap(map);
+        Hebron_fence.setMap(map);
+        Gaza_fence.setMap(map);
+        Beersheba_fence.setMap(map);
+
+
+
+
+
+
+
+
+
+
+
+
+// Add event listener to change markers when zoom changes
+google.maps.event.addListener(map, 'zoom_changed', function() {
+    var zoom = map.getZoom();
+
+    if (zoom === 8) {
+        // Update markers for zoom level 8
+        updateMarkers('14px');
+    } else if (zoom === 7) {
+        // Update markers for zoom level 7
+        updateMarkers('10px');
+    } else {
+        // Update markers for other zoom levels
+        updateMarkers('14px');
+    }
+});
+
+// Function to update markers
+function updateMarkers(fontSizeOnZoom) {
+    marker1.setMap(null);
+    marker2.setMap(null);
+    marker3.setMap(null);
+    marker5.setMap(null);
+    marker6.setMap(null);
+    marker7.setMap(null);
+    marker8.setMap(null);
+    marker9.setMap(null);
+    marker10.setMap(null);
+    marker11.setMap(null);
+    marker12.setMap(null);
+    marker13.setMap(null);
+    marker14.setMap(null);
+    marker15.setMap(null);
+    marker16.setMap(null);
+    marker17.setMap(null);
+    marker18.setMap(null);
+    marker19.setMap(null);
+    marker20.setMap(null);
+    marker21.setMap(null);
+    marker23.setMap(null);
+    marker24.setMap(null);
+    
+    marker1 = new google.maps.Marker({
+        position: Safad_Region_Title,
+        map: map,
+        icon: {
+            url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+            size: new google.maps.Size(1, 1),
+            anchor: new google.maps.Point(0, 0),
+        },
+        label: {
+            text: 'صفد',
+            color: '#000',
+            fontSize: fontSizeOnZoom,
+            fontWeight: 'bold',
+        }
+    });
+    
+    marker2 = new google.maps.Marker({
+        position: Akka_Region_Title,
+        map: map,
+        icon: {
+            url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+            size: new google.maps.Size(1, 1),
+            anchor: new google.maps.Point(0, 0),
+        },
+        label: {
+            text: 'عكا',
+            color: '#000',
+            fontSize: fontSizeOnZoom,
+            fontWeight: 'bold',
+        }
+    });
+
+
+                marker3 = new google.maps.Marker({
+                position: Tiberias_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'طبريا',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+
+            marker5 = new google.maps.Marker({
+                position: Alnasra_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'الناصرة',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker6 = new google.maps.Marker({
+                position: Haifa_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: ' حيفا ',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker7 = new google.maps.Marker({
+                position: Jenin_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'جنين',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker8 = new google.maps.Marker({
+                position: Tulkarm_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'طولكرم',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker9 = new google.maps.Marker({
+                position: Bisan_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'بيسان',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker10 = new google.maps.Marker({
+                position: Tubas_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'طوباس',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker11 = new google.maps.Marker({
+                position: Nablus_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'نابلس',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker12 = new google.maps.Marker({
+                position: Qalqilya_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'قلقيلية',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker13 = new google.maps.Marker({
+                position: Salfit_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'سلفيت',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker14 = new google.maps.Marker({
+                position: Yaffa_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'يافا',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker15 = new google.maps.Marker({
+                position: Jericho_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'أريحا',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker16 = new google.maps.Marker({
+                position: Ramallah_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'رام الله',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker17 = new google.maps.Marker({
+                position: Lod_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'اللد',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker18 = new google.maps.Marker({
+                position: Ramla_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'الرملة',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker19 = new google.maps.Marker({
+                position: Jerusalem_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'القدس',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker20 = new google.maps.Marker({
+                position: Bethlehem_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'بيت لحم',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker21 = new google.maps.Marker({
+                position: Hebron_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'الخليل',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker23 = new google.maps.Marker({
+                position: Gaza_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'غزة',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+
+
+		
+            marker24 = new google.maps.Marker({
+                position: Beersheba_Region_Title,
+                map: map,
+                icon: {
+                    url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                    size: new google.maps.Size(1, 1),
+                    anchor: new google.maps.Point(0, 0),
+                },
+                label: {
+                    text: 'بئر السبع',
+                    color: '#000',
+                    fontSize: fontSizeOnZoom,
+                    fontWeight: 'bold',
+                }
+            });
+}
+
+
+
+//--------------------------------------------------------------
+
+google.maps.event.addListener(map, 'zoom_changed', function() {
+    if (map.getZoom() === 10) {
+        marker4.setMap(null);
+        marker4 = new google.maps.Marker({
+            position: Bahriatabria_Region_Title,
+            map: map,
+            icon: {
+                url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                size: new google.maps.Size(1, 1),
+                anchor: new google.maps.Point(0, 0),
+            },
+            label: {
+                text: 'بحيرة طبريا',
+                color: '#000',
+                fontSize: '14px',
+                fontWeight: 'bold',
+            }
+        });
+    }
+    if (map.getZoom() === 9) {
+        marker4.setMap(null);
+        marker4 = new google.maps.Marker({
+            position: Bahriatabria_Region_Title,
+            map: map,
+            icon: {
+                url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                size: new google.maps.Size(1, 1),
+                anchor: new google.maps.Point(0, 0),
+            },
+            label: {
+                text: 'بحيرة طبريا',
+                color: '#000',
+                fontSize: '12px',
+                fontWeight: 'bold',
+            }
+        });
+    }
+    if (map.getZoom() === 8) {
+        marker4.setMap(null);
+        marker4 = new google.maps.Marker({
+            position: Bahriatabria_Region_Title,
+            map: map,
+            icon: {
+                url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                size: new google.maps.Size(1, 1),
+                anchor: new google.maps.Point(0, 0),
+            },
+            label: {
+                text: 'بحيرة طبريا',
+                color: '#000',
+                fontSize: '7px',
+                fontWeight: 'bold',
+            }
+        });
+    }
+    if (map.getZoom() === 7) {
+        marker4.setMap(null);
+        marker4 = new google.maps.Marker({
+            position: Bahriatabria_Region_Title,
+            map: map,
+            icon: {
+                url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                size: new google.maps.Size(1, 1),
+                anchor: new google.maps.Point(0, 0),
+            },
+            label: {
+                text: 'بحيرة طبريا',
+                color: '#000',
+                fontSize: '3px',
+                fontWeight: 'bold',
+            }
+        });
+    } 
+});
+
+
+
+google.maps.event.addListener(map, 'zoom_changed', function() {
+    if (map.getZoom() === 10) {
+        marker22.setMap(null);
+        marker22 = new google.maps.Marker({
+            position: Deadsea_Region_Title,
+            map: map,
+            icon: {
+                url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                size: new google.maps.Size(1, 1),
+                anchor: new google.maps.Point(0, 0),
+            },
+            label: {
+                text: 'البحر الميت',
+                color: '#000',
+                fontSize: '14px',
+                fontWeight: 'bold',
+            }
+        });
+    }
+    if (map.getZoom() === 9) {
+        marker22.setMap(null);
+        marker22 = new google.maps.Marker({
+            position: Deadsea_Region_Title,
+            map: map,
+            icon: {
+                url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                size: new google.maps.Size(1, 1),
+                anchor: new google.maps.Point(0, 0),
+            },
+            label: {
+                text: 'البحر الميت',
+                color: '#000',
+                fontSize: '12px',
+                fontWeight: 'bold',
+            }
+        });
+    }
+    if (map.getZoom() === 8) {
+        marker22.setMap(null);
+        marker22 = new google.maps.Marker({
+            position: Deadsea_Region_Title,
+            map: map,
+            icon: {
+                url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                size: new google.maps.Size(1, 1),
+                anchor: new google.maps.Point(0, 0),
+            },
+            label: {
+                text: 'البحر الميت',
+                color: '#000',
+                fontSize: '9px',
+                fontWeight: 'bold',
+            }
+        });
+    }
+    if (map.getZoom() === 7) {
+        marker22.setMap(null);
+        marker22 = new google.maps.Marker({
+            position: Deadsea_Region_Title,
+            map: map,
+            icon: {
+                url: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+                size: new google.maps.Size(1, 1),
+                anchor: new google.maps.Point(0, 0),
+            },
+            label: {
+                text: 'البحر الميت',
+                color: '#000',
+                fontSize: '5px',
+                fontWeight: 'bold',
+            }
+        });
+    } 
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+google.maps.event.addListener(map, 'zoom_changed', function() {
+    var zoomLevel = map.getZoom();
+    if (zoomLevel >= 11) {
+        Safad_fence.setMap(null);
+        Akka_fence.setMap(null);
+        Alnasra_fence.setMap(null);
+        Haifa_fence.setMap(null);
+        Bahriatabria_fence.setMap(null);
+        Tiberias_fence.setMap(null);
+        Bisan_fence.setMap(null);
+        Tubas_fence.setMap(null);
+        Jenin_fence.setMap(null);
+        Nablus_fence.setMap(null);
+        Tulkarm_fence.setMap(null);
+        Qalqilya_fence.setMap(null);
+        Yaffa_fence.setMap(null);
+        Ramla_fence.setMap(null);
+        Lod_fence.setMap(null);
+        Salfit_fence.setMap(null);
+        Ramallah_fence.setMap(null);
+        Jericho_fence.setMap(null);
+        Jerusalem_fence.setMap(null);
+        Deadsea_fence.setMap(null);
+        Bethlehem_fence.setMap(null);
+        Hebron_fence.setMap(null);
+        Gaza_fence.setMap(null);
+        Beersheba_fence.setMap(null);
+
+
+
+        //Markers in each regions
+        Safad_markers_Cont.forEach(marker => marker.setMap(map));
+
+
+
+        //Markers(label) on each regions
+        marker1.setMap(null);
+		marker2.setMap(null);
+		marker3.setMap(null);
+		marker4.setMap(null);
+		marker5.setMap(null);
+		marker6.setMap(null);
+		marker7.setMap(null);
+		marker8.setMap(null);  
+		marker9.setMap(null);
+		marker10.setMap(null);
+		marker11.setMap(null);
+		marker12.setMap(null);
+		marker13.setMap(null);
+		marker14.setMap(null);
+		marker15.setMap(null);
+		marker16.setMap(null);
+		marker17.setMap(null);
+		marker18.setMap(null);
+		marker19.setMap(null);
+		marker20.setMap(null);
+		marker21.setMap(null);
+		marker22.setMap(null);
+		marker23.setMap(null);
+		marker24.setMap(null);
+    } else {
+        Safad_fence.setMap(map);
+        Akka_fence.setMap(map);
+        Alnasra_fence.setMap(map);
+        Haifa_fence.setMap(map);
+        Bahriatabria_fence.setMap(map);
+        Tiberias_fence.setMap(map);
+        Bisan_fence.setMap(map);
+        Tubas_fence.setMap(map);
+        Jenin_fence.setMap(map);
+        Nablus_fence.setMap(map);
+        Tulkarm_fence.setMap(map);
+        Qalqilya_fence.setMap(map);
+        Yaffa_fence.setMap(map);
+        Ramla_fence.setMap(map);
+        Lod_fence.setMap(map);
+        Salfit_fence.setMap(map);
+        Ramallah_fence.setMap(map);
+        Jericho_fence.setMap(map);
+        Jerusalem_fence.setMap(map);
+        Deadsea_fence.setMap(map);
+        Bethlehem_fence.setMap(map);
+        Hebron_fence.setMap(map);
+        Gaza_fence.setMap(map);
+        Beersheba_fence.setMap(map);
+
+
+
+        //Markers in each regions
+        Safad_markers_Cont.forEach(marker => marker.setMap(null));
+
+
+
+        //Markers(label) on each regions
+        marker1.setMap(map);
+		marker2.setMap(map);
+		marker3.setMap(map);
+		marker4.setMap(map);
+		marker5.setMap(map);
+		marker6.setMap(map);
+		marker7.setMap(map);
+		marker8.setMap(map);  
+		marker9.setMap(map);
+		marker10.setMap(map);
+		marker11.setMap(map);
+		marker12.setMap(map);
+		marker13.setMap(map);
+		marker14.setMap(map);
+		marker15.setMap(map);
+		marker16.setMap(map);
+		marker17.setMap(map);
+		marker18.setMap(map);
+		marker19.setMap(map);
+		marker20.setMap(map);
+		marker21.setMap(map);
+		marker22.setMap(map);
+		marker23.setMap(map);
+		marker24.setMap(map);
+
+
+
+        // Check if infoWindow is defined before trying to open
+        if (Safad_infoWindow) {
+            Safad_infoWindow.open(null); // Close the infoWindow if it's open
+        }
+
+
+
+    }
+
+
+
+});//zoom_changed ends here
+	
+	  
+
+
+
+
+            
+
+}//end of main function
+
+
+</script>
+<script type="text/javascript">
+/*-----Markers Adding Starts Here-----*/
+</script>
+<script src="markers/safad_markers.js"></script>
+
+
+
+<script type="text/javascript">
+/*-----Polygons Adding Starts Here-----*/
+</script>
+<script src="polygon/safad_polygon.js"></script>
+<script src="polygon/akka_polygon.js"></script>
+<script src="polygon/alnasra_polygon.js"></script>
+<script src="polygon/haifa_polygon.js"></script>
+<script src="polygon/bahriatabria_polygon.js"></script>
+<script src="polygon/tiberias_polygon.js"></script>
+<script src="polygon/bisan_polygon.js"></script>
+<script src="polygon/tubas_polygon.js"></script>
+<script src="polygon/jenin_polygon.js"></script>
+<script src="polygon/nablus_polygon.js"></script>
+<script src="polygon/tulkarm_polygon.js"></script>
+<script src="polygon/qalqilya_polygon.js"></script>
+<script src="polygon/yaffa_polygon.js"></script>
+<script src="polygon/ramla_polygon.js"></script>
+<script src="polygon/lod_polygon.js"></script>
+<script src="polygon/salfit_polygon.js"></script>
+<script src="polygon/ramallah_polygon.js"></script>
+<script src="polygon/jericho_polygon.js"></script>
+<script src="polygon/jerusalem_polygon.js"></script>
+<script src="polygon/deadsea_polygon.js"></script>
+<script src="polygon/bethlehem_polygon.js"></script>
+<script src="polygon/hebron_polygon.js"></script>
+<script src="polygon/gaza_polygon.js"></script>
+<script src="polygon/beersheba_polygon.js"></script>
+
+
+
+<script src="mouseoverandout/mouseoverandout.js"></script>
+
+
+<script src="clickeventsonregions/clickeventsonregions.js"></script>
+
+        </body>
+            </html>
