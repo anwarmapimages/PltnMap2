@@ -11,7 +11,7 @@
 
 // Add mouseover event listener to Safad_fence
 Safad_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#32AA32"}); //40% shadow
+    this.setOptions({fillColor: "#9D2326"}); //40% shadow
     this.setOptions({strokeColor: "#FFF"}); //40% shadow
     // Set z-index of Safad_fence to be higher than the others
     this.setOptions({ zIndex: 1 });
@@ -24,14 +24,14 @@ Safad_fence.addListener('mouseover', function() {
 });
 // Add mouseout listener to revert fillColor
 Safad_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#32CF32"});
-    this.setOptions({strokeColor: "#32CF32"});
+    this.setOptions({fillColor: "#9D3327"});
+    this.setOptions({strokeColor: "#9D3327"});
 });
 
 
 
 Ramla_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#32AA32"});
+    this.setOptions({fillColor: "#F4A257"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -42,14 +42,14 @@ Ramla_fence.addListener('mouseover', function() {
     });
 });
 Ramla_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#32CF32"});
-    this.setOptions({strokeColor: "#32CF32"});
+    this.setOptions({fillColor: "#F4A256"});
+    this.setOptions({strokeColor: "#F4A256"});
 });
 
 
 
 Nablus_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#32AA32"});
+    this.setOptions({fillColor: "#B67939"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -60,13 +60,13 @@ Nablus_fence.addListener('mouseover', function() {
     });
 });
 Nablus_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#32CF32"});
-    this.setOptions({strokeColor: "#32CF32"});
+    this.setOptions({fillColor: "#B67928"});
+    this.setOptions({strokeColor: "#B67928"});
 });
 
 
 Haifa_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#32AA32"});
+    this.setOptions({fillColor: "#FAEBC5"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -77,13 +77,13 @@ Haifa_fence.addListener('mouseover', function() {
     });
 });
 Haifa_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#32CF32"});
-    this.setOptions({strokeColor: "#32CF32"});
+    this.setOptions({fillColor: "#FAEBD4"});
+    this.setOptions({strokeColor: "#FAEBD4"});
 });
 
 
 Bisan_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#32AA32"});
+    this.setOptions({fillColor: "#5D3F73"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -94,13 +94,13 @@ Bisan_fence.addListener('mouseover', function() {
     });
 });
 Bisan_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#32CF32"});
-    this.setOptions({strokeColor: "#32CF32"});
+    this.setOptions({fillColor: "#5D3F63"});
+    this.setOptions({strokeColor: "#5D3F63"});
 });
 
 
 Beersheba_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#32AA32"});
+    this.setOptions({fillColor: "#241E30"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -111,14 +111,14 @@ Beersheba_fence.addListener('mouseover', function() {
     });
 });
 Beersheba_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#32CF32"});
-    this.setOptions({strokeColor: "#32CF32"});
+    this.setOptions({fillColor: "#241E20"});
+    this.setOptions({strokeColor: "#241E20"});
 });
 
 
 
 Akka_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#EE9900"});
+    this.setOptions({fillColor: "#86664C"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -129,12 +129,12 @@ Akka_fence.addListener('mouseover', function() {
     });
 });
 Akka_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#EEBB00"});
-    this.setOptions({strokeColor: "#EEBB00"});
+    this.setOptions({fillColor: "#86624C"});
+    this.setOptions({strokeColor: "#86624C"});
 });
 
 Tulkarm_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#EE9900"});
+    this.setOptions({fillColor: "#59593D"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -145,8 +145,8 @@ Tulkarm_fence.addListener('mouseover', function() {
     });
 });
 Tulkarm_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#EEBB00"});
-    this.setOptions({strokeColor: "#EEBB00"});
+    this.setOptions({fillColor: "#59583C"});
+    this.setOptions({strokeColor: "#59583C"});
 });
 
 Jericho_fence.addListener('mouseover', function() {
@@ -166,7 +166,7 @@ Jericho_fence.addListener('mouseout', function() {
 });
 
 Hebron_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#EE9900"});
+    this.setOptions({fillColor: "#BC2136"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -177,8 +177,8 @@ Hebron_fence.addListener('mouseover', function() {
     });
 });
 Hebron_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#EEBB00"});
-    this.setOptions({strokeColor: "#EEBB00"});
+    this.setOptions({fillColor: "#BC2125"});
+    this.setOptions({strokeColor: "#BC2125"});
 });
 
 Lod_fence.addListener('mouseover', function() {
@@ -200,7 +200,7 @@ Lod_fence.addListener('mouseout', function() {
 
 
 Jenin_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#3377BB"});
+    this.setOptions({fillColor: "#ECF0FF"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -211,8 +211,8 @@ Jenin_fence.addListener('mouseover', function() {
     });
 });
 Jenin_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#3399CC"});
-    this.setOptions({strokeColor: "#3399CC"});
+    this.setOptions({fillColor: "#ECF0EF"});
+    this.setOptions({strokeColor: "#ECF0EF"});
 });
 
 Salfit_fence.addListener('mouseover', function() {
@@ -232,7 +232,7 @@ Salfit_fence.addListener('mouseout', function() {
 });
 
 Gaza_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#3377BB"});
+    this.setOptions({fillColor: "#753F7C"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -243,8 +243,8 @@ Gaza_fence.addListener('mouseover', function() {
     });
 });
 Gaza_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#3399CC"});
-    this.setOptions({strokeColor: "#3399CC"});
+    this.setOptions({fillColor: "#753F7B"});
+    this.setOptions({strokeColor: "#753F7B"});
 });
 
 
@@ -282,7 +282,7 @@ Qalqilya_fence.addListener('mouseout', function() {
 });
 
 Jerusalem_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#959585"});
+    this.setOptions({fillColor: "#9C624D"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -293,14 +293,14 @@ Jerusalem_fence.addListener('mouseover', function() {
     });
 });
 Jerusalem_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#A9A9A9"});
-    this.setOptions({strokeColor: "#A9A9A9"});
+    this.setOptions({fillColor: "#9C623D"});
+    this.setOptions({strokeColor: "#9C623D"});
 });
 
 
 
 Tiberias_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#BA4000"});
+    this.setOptions({fillColor: "#3E7C96"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -311,8 +311,8 @@ Tiberias_fence.addListener('mouseover', function() {
     });
 });
 Tiberias_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#D84315"});
-    this.setOptions({strokeColor: "#D84315"});
+    this.setOptions({fillColor: "#3E7C95"});
+    this.setOptions({strokeColor: "#3E7C95"});
 });
 
 Tubas_fence.addListener('mouseover', function() {
@@ -332,7 +332,7 @@ Tubas_fence.addListener('mouseout', function() {
 });
 
 Yaffa_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#BA4000"});
+    this.setOptions({fillColor: "#84374A"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -343,12 +343,12 @@ Yaffa_fence.addListener('mouseover', function() {
     });
 });
 Yaffa_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#D84315"});
-    this.setOptions({strokeColor: "#D84315"});
+    this.setOptions({fillColor: "#843749"});
+    this.setOptions({strokeColor: "#843749"});
 });
 
 Ramallah_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#BA4000"});
+    this.setOptions({fillColor: "#B3587A"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -359,14 +359,14 @@ Ramallah_fence.addListener('mouseover', function() {
     });
 });
 Ramallah_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#D84315"});
-    this.setOptions({strokeColor: "#D84315"});
+    this.setOptions({fillColor: "#B35879"});
+    this.setOptions({strokeColor: "#B35879"});
 });
 
 
 
 Bethlehem_fence.addListener('mouseover', function() {
-    this.setOptions({fillColor: "#578A3A"});
+    this.setOptions({fillColor: "#693038"});
     this.setOptions({strokeColor: "#FFF"});
     this.setOptions({ zIndex: 1 });
 
@@ -377,8 +377,8 @@ Bethlehem_fence.addListener('mouseover', function() {
     });
 });
 Bethlehem_fence.addListener('mouseout', function() {
-    this.setOptions({fillColor: "#589E3E"});
-    this.setOptions({strokeColor: "#589E3E"});
+    this.setOptions({fillColor: "#693037"});
+    this.setOptions({strokeColor: "#693037"});
 });
 
 
